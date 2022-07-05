@@ -51,7 +51,7 @@ class Home extends React.Component {
   render() {
       const { isDisabled, username, isLoading } = this.state
     return (
-      <div>
+      <div className="home">
         {isLoading ? <Loading />
         : <fieldset className="login-fieldset" data-testid="page-login">
           <form className="login-form">

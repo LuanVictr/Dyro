@@ -1,0 +1,15 @@
+.header-link {
+    margin: 10px;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: green;
+    text-decoration: none;
+    height: 10%;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
