@@ -3,7 +3,6 @@ import Header from '../Components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from '../Components/Loading';
 import AlbumCard from '../Components/AlbumCard';
-import '../Css/search.css';
 
 class Search extends React.Component {
   constructor() {
