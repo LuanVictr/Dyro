@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Css/album-card.css';
+import PropTypes from 'prop-types';
 
 class AlbumCard extends React.Component {
   render() {

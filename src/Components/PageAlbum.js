@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Css/page-album.css';
+import PropTypes from 'prop-types';
 
 class PageAlbum extends React.Component {
   render() {

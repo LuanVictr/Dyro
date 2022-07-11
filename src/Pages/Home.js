@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Loading from '../Components/Loading';
 import '../Css/Home.css';
 import { createUser } from '../services/userAPI';
