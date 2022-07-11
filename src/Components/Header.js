@@ -36,20 +36,36 @@ class Header extends React.Component {
           <h1>Header</h1>
           { isLoading
             ? <Loading />
-              : <h2 data-testid="header-user-name">
-            Olá,
-             { name }
-            </h2>}
+            : (
+              <h2 data-testid="header-user-name">
+                Olá,
+                { name }
+              </h2>)}
         </div>
         <div className="links">
-        <Link
-        className="header-link"
-        data-testid="link-to-search"
-        to={ '/search' }
-        >Search
-        </Link>
-        <Link className="header-link" data-testid="link-to-favorites" to={ '/favorites' }>Favorites</Link>
-        <Link className="header-link" data-testid="link-to-profile" to={ '/profile' }>Profile</Link>
+          <Link
+            className="header-link"
+            data-testid="link-to-search"
+            to="/search"
+          >
+            Search
+          </Link>
+          <Link
+            className="header-link"
+            data-testid="link-to-favorites"
+            to="/favorites"
+          >
+            Favorites
+
+          </Link>
+          <Link
+            className="header-link"
+            data-testid="link-to-profile"
+            to="/profile"
+          >
+            Profile
+
+          </Link>
         </div>
       </div>
     );

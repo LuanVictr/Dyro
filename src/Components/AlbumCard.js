@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../Css/album-card.css'
+import '../Css/album-card.css';
 
 class AlbumCard extends React.Component {
   render() {
@@ -8,15 +8,17 @@ class AlbumCard extends React.Component {
       artistName,
       collectionName,
       artwork,
-      collectionId
+      collectionId,
     } = this.props;
     return (
-      <div className='album-card'>
-        <img className="image" src={ artwork } alt={ artistName }/>
+      <div className="album-card">
+        <img className="image" src={ artwork } alt={ artistName } />
         <Link
-          data-testid={`link-to-album-${collectionId}`}
-          to={`/album/${collectionId}`} >{ collectionName }
-          </Link>
+          data-testid={ `link-to-album-${collectionId}` }
+          to={ `/album/${collectionId}` }
+        >
+          { collectionName }
+        </Link>
         <p>{ artistName }</p>
       </div>
     );
@@ -24,3 +26,10 @@ class AlbumCard extends React.Component {
 }
 
 export default AlbumCard;
+
+AlbumCard.propTypes = {
+  artistName: PropTypes.string.isRequired,
+  collectionName: PropTypes.string.isRequired,
+  collectionId: PropTypes.number.isRequired,
+  artwork: PropTypes.string.isRequired,
+};

@@ -1,6 +1,5 @@
 import React from 'react'; // e la vamos nos
-import { Route } from 'react-router-dom';
-import { Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Home from './Pages/Home';
 import Search from './Pages/Search';
 import Album from './Pages/Album';
