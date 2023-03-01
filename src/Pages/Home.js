@@ -1,89 +1,55 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import Loading from '../Components/Loading';
 import '../Css/Home.css';
-import { createUser } from '../services/userAPI';
+import { useHistory } from 'react-router-dom';
+import MyContext from '../context/context';
+import Logo from '../Css/images/logo.png';
 
-class Home extends React.Component {
-  constructor() {
-    super();
+function Home() {
+  const history = useHistory();
 
-    this.HandleChange = this.HandleChange.bind(this);
-    this.EnableButton = this.EnableButton.bind(this);
-    this.ClassCreateUser = this.ClassCreateUser.bind(this);
+  const {
+    userName,
+    setUserName,
+  } = useContext(MyContext);
 
-    this.state = {
-      username: '',
-      isDisabled: true,
-      isLoading: false,
-    };
-  }
+  const handleEmailChange = ({ target }) => {
+    setUserName(target.value);
+  };
 
-  async ClassCreateUser() {
-    const { username } = this.state;
-    const { history } = this.props;
-    this.setState({
-      isLoading: true,
-    });
-    await createUser({ name: username });
-    history.push('/search');
-  }
+  return (
+    <div className="login-page">
+      <form className="login-form">
+        <img className="logo-image" src={ Logo } alt="logo" />
+        <input
+          onChange={ handleEmailChange }
+          data-testid="login-name-input"
+          type="text"
+          value={ userName }
+          id="name-input"
+          placeholder="Nome de usuário"
+          name="username"
+          className="login-input"
+        />
+        <input
+          id="password"
+          type="password"
+          name="password"
+          placeholder="Senha"
+          className="login-input"
+        />
+        <button
+          onClick={ () => history.push('/search') }
+          data-testid="login-submit-button"
+          type="button"
+          id="login-button"
+        >
+          Entrar
 
-  HandleChange({ target }) {
-    const { name, value } = target;
-    this.setState({
-      [name]: value,
-    }, () => { this.EnableButton(); });
-  }
-
-  EnableButton() {
-    const length = 3;
-    const { username } = this.state;
-    if (username.length >= length) {
-      this.setState({
-        isDisabled: false,
-      });
-    } else {
-      this.setState({
-        isDisabled: true,
-      });
-    }
-  }
-
-  render() {
-    const { isDisabled, username, isLoading } = this.state;
-    return (
-      <div className="home">
-        {isLoading ? <Loading />
-          : (
-            <fieldset className="login-fieldset" data-testid="page-login">
-              <form className="login-form">
-                <label htmlFor="name-input">
-                  Login
-                  <input
-                    onChange={ this.HandleChange }
-                    value={ username }
-                    data-testid="login-name-input"
-                    type="text"
-                    id="name-input"
-                    placeholder="Digite seu nome"
-                    name="username"
-                  />
-                  <button
-                    disabled={ isDisabled }
-                    onClick={ this.ClassCreateUser }
-                    data-testid="login-submit-button"
-                    type="button"
-                  >
-                    Entrar
-
-                  </button>
-                </label>
-              </form>
-            </fieldset>)}
-      </div>
-    );
-  }
+        </button>
+      </form>
+    </div>
+  );
 }
 
 export default Home;
