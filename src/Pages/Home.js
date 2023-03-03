@@ -13,7 +13,7 @@ function Home() {
     setUserName,
   } = useContext(MyContext);
 
-  const handleEmailChange = ({ target }) => {
+  const handleUserNameChange = ({ target }) => {
     setUserName(target.value);
   };
 
@@ -22,7 +22,7 @@ function Home() {
       <form className="login-form">
         <img className="logo-image" src={ Logo } alt="logo" />
         <input
-          onChange={ handleEmailChange }
+          onChange={ handleUserNameChange }
           data-testid="login-name-input"
           type="text"
           value={ userName }

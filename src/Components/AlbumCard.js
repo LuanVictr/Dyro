@@ -1,29 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../Css/album-card.css';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
-class AlbumCard extends React.Component {
-  render() {
-    const {
-      artistName,
-      collectionName,
-      artwork,
-      collectionId,
-    } = this.props;
-    return (
-      <div className="album-card">
-        <img className="image" src={ artwork } alt={ artistName } />
-        <Link
-          data-testid={ `link-to-album-${collectionId}` }
-          to={ `/album/${collectionId}` }
-        >
-          { collectionName }
-        </Link>
-        <p>{ artistName }</p>
-      </div>
-    );
-  }
+function AlbumCard({ artistName, collectionName, collectionId, artwork }) {
+  const history = useHistory();
+
+  return (
+    <div>
+      <img
+        aria-hidden
+        onClick={ () => history.push(`/album/${collectionId}`) }
+        src={ artwork }
+        alt="Collection Thumb"
+      />
+      <h4
+        aria-hidden
+        onClick={ () => history.push(`/album/${collectionId}`) }
+      >
+        {collectionName}
+
+      </h4>
+      <p>{artistName}</p>
+    </div>
+  );
 }
 
 export default AlbumCard;

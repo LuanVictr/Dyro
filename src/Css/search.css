@@ -1,0 +1,49 @@
+.search {
+  background: linear-gradient(to bottom,  #008b8b , white);
+  position: absolute;
+  top: 60px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+}
+
+@font-face {
+  font-family: barlow medium;
+  src: url('./fonts/BarlowCondensed-MediumItalic.ttf');
+}
+
+.search input {
+  border: none;
+  border-radius: 50px;
+  width: 400px;
+  height: 30px;
+  margin-top: 3%;
+  padding: 10px;
+  outline: none;
+  font-size: 18px;
+  font-family: barlow medium;
+  font-weight: 500;
+}
+
+.searchButton {
+  height: 40px;
+  width: 150px;
+  border-radius: 40px;
+  border: none;
+  border: solid white 1px;
+  color: white;
+  background-color: transparent;
+  margin-top: 2%;
+  transition: all 0.4s ease 0s;
+  font-family: barlow medium;
+  font-size: 18px;
+}
+
+.searchButton:hover {
+  background-color: white;
+  color: #008b8b;
+}

@@ -1,15 +1,46 @@
-.header-link {
-  background-color: green;
-  border-radius: 10px;
-  color: white;
-  height: 10%;
-  margin: 10px;
-  padding: 5px;
-  text-decoration: none;
+.Header {
+  display: flex;
+  height: 60px;
+  background-color: white;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.header {
-  align-items: center;
+@font-face {
+  font-family: barlow ;
+  src: url('./fonts/BarlowCondensed-Black.ttf');
+}
+
+.logo-icon {
+  height: 60px;
+}
+
+.Header h4 {
+  color: #008B8B;
+  font-family: barlow;
+  font-size: 30px;
+}
+
+.header-nav {
   display: flex;
   justify-content: space-around;
+  width: 150px;
+}
+
+.profile-icon {
+  height: 40px;
+}
+
+.logout-icon {
+  height: 40px;
+}
+
+.profile-icon:hover {
+  height: 45px;
+  width: 45px;
+}
+
+.logout-icon:hover {
+  height: 45px;
+  width: 45px;
 }

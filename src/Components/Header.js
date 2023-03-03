@@ -1,75 +1,32 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { getUser } from '../services/userAPI';
-import Loading from './Loading';
+import React, { useContext } from 'react';
 import '../Css/Header.css';
+import { useHistory } from 'react-router-dom';
+import LogoIcon from '../Css/images/logo-icon.png';
+import MyContext from '../context/context';
+import LogoProfile from '../Css/images/logo-perfil.png';
+import LogoLogOut from '../Css/images/logo-logout.png';
 
-class Header extends React.Component {
-  constructor() {
-    super();
+function Header() {
+  const history = useHistory();
+  const { userName } = useContext(MyContext);
 
-    this.classGetUser = this.classGetUser.bind(this);
-
-    this.state = {
-      isLoading: true,
-      name: '',
-    };
-  }
-
-  componentDidMount() {
-    this.classGetUser();
-  }
-
-  async classGetUser() {
-    const userData = await getUser();
-    this.setState({
-      isLoading: false,
-      name: userData.name,
-    });
-  }
-
-  render() {
-    const { isLoading, name } = this.state;
-    return (
-      <div className="header" data-testid="header-component">
-        <div className="header-user">
-          <h1>Header</h1>
-          { isLoading
-            ? <Loading />
-            : (
-              <h2 data-testid="header-user-name">
-                Olá,
-                { name }
-              </h2>)}
-        </div>
-        <div className="links">
-          <Link
-            className="header-link"
-            data-testid="link-to-search"
-            to="/search"
-          >
-            Search
-          </Link>
-          <Link
-            className="header-link"
-            data-testid="link-to-favorites"
-            to="/favorites"
-          >
-            Favorites
-
-          </Link>
-          <Link
-            className="header-link"
-            data-testid="link-to-profile"
-            to="/profile"
-          >
-            Profile
-
-          </Link>
-        </div>
+  return (
+    <div className="Header">
+      <img className="logo-icon" src={ LogoIcon } alt="Logo Dyro" />
+      <h4>{`Olá ${userName}`}</h4>
+      <div className="header-nav">
+        <img className="profile-icon" src={ LogoProfile } alt="Profile Logo" />
+        <img
+          aria-hidden
+          onClick={ () => history.push('/') }
+          className="logout-icon"
+          src={ LogoLogOut }
+          alt="Profile Logout"
+        />
       </div>
-    );
-  }
+    </div>
+
+  );
 }
 
 export default Header;

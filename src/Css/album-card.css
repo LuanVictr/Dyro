@@ -1,15 +1,1 @@
-.album-card {
-  align-items: center;
-  border: 2px solid black;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-  width: fit-content;
-}
 
-.image {
-  border-radius: 10px;
-  margin-top: 10px;
-  width: 230px;
-}
