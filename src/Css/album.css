@@ -1,3 +1,42 @@
-.page-album {
+.album {
   display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #008b8b, white);
+  align-items: center;
+  justify-content: center;
+}
+
+.album-info {
+  display: flex;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+@font-face {
+  font-family: barlow medium;
+  src: url('./fonts/BarlowCondensed-MediumItalic.ttf');
+}
+
+.album-info h1, h4 {
+  color: white;
+  margin-left: 40px;
+  font-family: barlow medium;
+}
+
+.album-info img {
+  width: 100px;
+  height: 100px;
+}
+
+.musics {
+  width: 80%;
+  font-family: barlow medium;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

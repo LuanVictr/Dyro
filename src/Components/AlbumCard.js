@@ -7,21 +7,21 @@ function AlbumCard({ artistName, collectionName, collectionId, artwork }) {
   const history = useHistory();
 
   return (
-    <div>
+    <div
+      aria-hidden
+      onClick={ () => history.push(`/album/${collectionId}`) }
+      className="card"
+    >
       <img
-        aria-hidden
-        onClick={ () => history.push(`/album/${collectionId}`) }
         src={ artwork }
         alt="Collection Thumb"
       />
-      <h4
-        aria-hidden
-        onClick={ () => history.push(`/album/${collectionId}`) }
-      >
-        {collectionName}
-
-      </h4>
-      <p>{artistName}</p>
+      <div className="card-infos">
+        <h4>
+          {collectionName}
+        </h4>
+        <p>{artistName}</p>
+      </div>
     </div>
   );
 }

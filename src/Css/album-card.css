@@ -1,1 +1,22 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  background-color: rgba(128, 128, 128, 0.1);
+  transition: all 0.4s ease 0s;
+}
 
+.card:hover {
+  background-color: rgba(128, 128, 128, 0.3);
+}
+
+.card img {
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+}
+
+.card-infos {
+  color: white;
+  font-family:barlow medium;
+}

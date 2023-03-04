@@ -1,89 +1,46 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Header from '../Components/Header';
 import getMusics from '../services/musicsAPI';
-import PageAlbum from '../Components/PageAlbum';
-import MusicCard from '../Components/MusicCard';
 import '../Css/album.css';
-import Loading from '../Components/Loading';
+import MusicCard from '../Components/MusicCard';
 
-class Album extends React.Component {
-  constructor() {
-    super();
+function Album() {
+  const [musics, setMusics] = useState();
+  const [fetched, setFetched] = useState(false);
+  const { id } = useParams();
 
-    this.FetchMusics = this.FetchMusics.bind(this);
-    this.showMusics = this.showMusics.bind(this);
-    this.mountPage = this.mountPage.bind(this);
+  useEffect(async () => {
+    const musicsInfo = await getMusics(id);
+    await setMusics(musicsInfo);
+    setFetched(true);
+  }, [id]);
 
-    this.state = {
-      fetchDone: false,
-      isLoading: false,
-    };
-  }
-
-  componentDidMount() {
-    this.FetchMusics();
-  }
-
-  async FetchMusics() {
-    const { match: { params: { id } } } = this.props;
-    const musics = await getMusics(id);
-    this.setState({
-      musics,
-      fetchDone: true,
-    });
-  }
-
-  mountPage() {
-    const { musics } = this.state;
-    const info = musics;
-    return (
-      <PageAlbum
-        imageUrl={ info[0].artworkUrl100 }
-        artistName={ info[0].artistName }
-        collectionName={ info[0].collectionName }
-      />
-    );
-  }
-
-  showMusics() {
-    const { musics } = this.state;
-    const info = musics.slice([1]);
-    return (
-      info.map((music) => (<MusicCard
-        trackName={ music.trackName }
-        previewUrl={ music.previewUrl }
-        trackId={ music.trackId }
-        key={ music.trackId }
-      />))
-    );
-  }
-
-  render() {
-    const { fetchDone, isLoading } = this.state;
-    return (
-      <div data-testid="page-album">
-        {isLoading ? <Loading />
-          : (
+  return (
+    <div>
+      <Header />
+      {fetched ? (
+        <div className="album">
+          <div className="album-info">
+            <img src={ musics[0].artworkUrl100 } alt="album" />
             <div>
-              <Header />
-              <div className="album-info">
-                {fetchDone ? this.mountPage() : false}
-                {fetchDone ? this.showMusics() : false}
-              </div>
-            </div>) }
-
-      </div>
-    );
-  }
+              <h1>{musics[0].collectionName}</h1>
+              <h4>{musics[0].artistName}</h4>
+            </div>
+          </div>
+          <div className="musics">
+            {musics.slice(1).map((music) => (<MusicCard
+              key={ music.trackId }
+              trackName={ music.trackName }
+              previewUrl={ music.previewUrl }
+            />))}
+          </div>
+        </div>
+      ) : (
+        <p>Loading</p>
+      )}
+    </div>
+  );
 }
 
 export default Album;
-
-Album.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    }),
-  }).isRequired,
-};
