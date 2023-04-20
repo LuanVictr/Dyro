@@ -1,4 +1,4 @@
-<h2> Curso Trybe Projeto Recipes App </h2>
+<h2> Dyro Streaming App </h2>
 <h4> Resumo do projeto: </h4>
 
 ##
