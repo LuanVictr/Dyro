@@ -1,13 +1,53 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+<h2> Curso Trybe Projeto Recipes App </h2>
+<h4> Resumo do projeto: </h4>
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+##
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+<p>Projeto pessoal de streaming de músicas funcional e utilizando a API gratuita do itunes</p>
+<h4> Funcionalidades: </h4>
+
+##
+
+<ul>
+<li> Tela de login </li>
+<li> Tela de busca de albuns </li>
+<li> Tela de player de musicas </li>
+</ul>
+
+<h4> Ferramentas Utilizadas: </h4>
+
+##
+
+<ul>
+<li> React.js </li>
+<li> Context </li>
+<li> HTML </li>
+<li> CSS </li>
+<li> API do itunes </li>
+</ul>
+
+<h4> Como Instalar: </h4>
+
+##
+
+<p> Faça um fork do projeto </p>
+<p> Clone o repositório </p>
+<p> Instale as dependências rodando o comando <b> npm install </b> </p>
+<p> Inicie o projeto rodando o comando <b> npm start </b></p>
+
+<h4> Informações Adicionais: </h4>
+
+##
+
+<p>Projeto desenvolvido e estilizado por mim</p>
+<p> Sinta-se livre para fazer uma fork e testar o que quiser. </p>
+
+<h4> Conecte-se comigo: </h4>
+
+##
+
+<div> 
+  <a href="https://instagram.com/as.luanvictor" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
+  <a href = "mailto:luanvictordev@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+  <a href="https://www.linkedin.com/in/luanvictor-/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
+</div>
